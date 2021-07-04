@@ -14,6 +14,7 @@ Light weight backbone trained with imagenet.
 | mobilenetv3 small 0.1        | adamw;bs 2048 | 36.128 | 60.336 |
 | mobilenetv3 small 0.75-paper | -             | 65.4   | -      |
 | mobilenetv3 small 0.75       | adamw;bs 1024 | 64.424 | 85.386 |
+| mobilenetv3 small 0.5        |               | 55.94  | 78.682 |
 
 ## Train
 

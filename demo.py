@@ -8,12 +8,13 @@ test_trans = transforms.Compose([transforms.Resize((224, 224)), # 首先需resiz
      transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])]
 )
 
-net = mobilenetv3_small(width_mult=0.1)
-ckpt = torch.load("pretrain/mobilenetv3smallx0.1_Top1_36.128.pth",map_location=torch.device('cpu'))
+net = mobilenetv3_small(width_mult=0.5)
+ckpt = torch.load("./pretrain/mobilenetv3smallx0.5_Top1_55.94.pth",map_location=torch.device('cpu'))['state_dict']
+
 #newckpt = {k[7:]:v for k,v in ckpt.items()}
-net.load_state_dict(ckpt)
+net.load_state_dict(newckpt)
 print(net)
-#torch.save(net.state_dict(),"mobilenetv3smallx0.1_Top1_36.128.pth")
+#torch.save(net.state_dict(),"mobilenetv3smallx0.5_Top1_55.94.pth")
 
 image = Image.open("./images/3a859c02856516d02d3c1d62b1fc491d.jpeg")
 img = test_trans(image)
